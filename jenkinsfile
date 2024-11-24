@@ -29,10 +29,13 @@ pipeline {
                
             }
         }
-        stage('Deploy') {
+        stage('Docker build') {
             steps {
                 
-                  sh  'echo Deploying'
+                  sh """ 
+                  docker build -t prash6645/backend:${appVersion}
+                  docker images
+                  """
                 
             }
         }
